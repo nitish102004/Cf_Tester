@@ -1,0 +1,62 @@
+{
+  "name": "cf-tester",
+  "displayName": "CF_TESTER",
+  "description": "CF_TESTER is a VS Code extension designed for competitive programmers who frequently participate in Codeforces contests. This extension simplifies the process of testing your C++ solutions by automatically fetching problem test cases from Codeforces and running them against your code within the editor.",
+  "version": "0.0.2",
+  "publisher": "Nitish Kumar Singh",
+  "icon": "img.png",
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Education",
+    "Testing",
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cf-tester.runCodeforcesProblem",
+        "title": "Run Codeforces Problem"
+      },
+      {
+        "command": "cf-tester.openResultsTab",
+        "title": "Open Codeforces Results"
+      },
+      {
+        "command": "cf-tester.openProblemWebview",
+        "title": "Open Problem Webpage"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "cf-tester.runCodeforcesProblem",
+        "key": "ctrl+alt+p",
+        "mac": "cmd+alt+p",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.92.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheShahnawaaz/CF_TESTER"
+  }
+
+}

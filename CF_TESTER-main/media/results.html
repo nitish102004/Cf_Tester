@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codeforces Results</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #007acc;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 2px solid #005fa3;
+        }
+        .container {
+            max-width: 960px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .results-section {
+            margin-top: 20px;
+        }
+        .results-section h2 {
+            font-size: 20px;
+            color: #007acc;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        .results {
+            white-space: pre-wrap;
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 4px;
+            overflow: auto;
+            max-height: 2000px;
+            line-height: 1.6;
+        }
+        .results.error {
+            background: #fdd;
+            color: #900;
+        }
+        .results.success {
+            background: #dff0d8;
+            color: #3c763d;
+        }
+        .code-block {
+            background: #eaeaea;
+            border-left: 5px solid #007acc;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .code-block pre {
+            margin: 0;
+            padding: 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #777;
+            border-top: 1px solid #ddd;
+        }
+        .footer a {
+            color: #007acc;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Codeforces Results</h1>
+    </header>
+    <div class="container">
+        <div class="results-section">
+            <h2>Checker Output</h2>
+            <div id="checkerOutput" class="results"></div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>Made with <span style="color: #e25555;">&#10084;</span> by <a href="https://www.linkedin.com/feed/" target="_blank">Nitish</a></p>
+    </footer>
+    <script>
+        const vscode = acquireVsCodeApi();
+
+        window.addEventListener('message', event => {
+            const message = event.data;
+            switch (message.command) {
+                case 'setResults':
+                    document.getElementById('checkerOutput').innerHTML = message.checkerResults;
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>
